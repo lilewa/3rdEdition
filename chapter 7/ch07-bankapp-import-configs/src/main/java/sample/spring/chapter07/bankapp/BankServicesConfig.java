@@ -21,11 +21,17 @@ public class BankServicesConfig {
 	@Autowired
 	private BankDaosConfig bankAppDao;
 	
-	@Bean(name = "accountStatementService")
+/*	@Bean(name = "accountStatementService")
 	public AccountStatementService accountStatementService(AccountStatementDao accountStatementDao) {
 		AccountStatementServiceImpl accountStatementServiceImpl = new AccountStatementServiceImpl();
 		accountStatementServiceImpl.setAccountStatementDao(accountStatementDao);
 		return accountStatementServiceImpl;
+	}*/
+
+	@Bean(name = "accountStatementService")
+	public AccountStatementService accountStatementService() {
+		AccountStatementServiceImpl accountStatementServiceImpl = new AccountStatementServiceImpl();
+ 		return accountStatementServiceImpl;
 	}
 
 	@Bean(name = "customerRegistrationService")
