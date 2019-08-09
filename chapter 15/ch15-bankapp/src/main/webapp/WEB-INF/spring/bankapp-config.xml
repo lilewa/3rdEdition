@@ -9,7 +9,14 @@
 
 	<mvc:annotation-driven />
 	<mvc:interceptors>
-		<bean class="sample.spring.chapter15.web.MyRequestHandlerInterceptor" />
+		<mvc:interceptor>
+			<mvc:mapping path="/fixedDeposit/list" />
+			<bean class="sample.spring.chapter15.web.MyRequestHandlerInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/fixedDeposit" />
+			<bean class="sample.spring.chapter15.web.TwoHandlerInterceptor" />
+		</mvc:interceptor>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="lang" />
 		</bean>
@@ -20,7 +27,12 @@
 	<bean
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
 		id="messageSource">
-		<property name="basenames" value="WEB-INF/i18n/messages" />
+		<property name="basenames">
+			<list>
+				<value>WEB-INF/i18n/messages</value>
+				<value>WEB-INF/i18n/messages2</value>
+			</list>
+		</property>
 		<property name="cacheSeconds" value="10"/>
 	</bean>
 

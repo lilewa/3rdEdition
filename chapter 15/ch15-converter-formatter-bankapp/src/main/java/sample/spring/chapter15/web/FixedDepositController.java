@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,8 @@ public class FixedDepositController {
 
 	@Autowired
 	private FixedDepositService fixedDepositService;
+	@Autowired
+	private ConversionService conversionService;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView listFixedDeposits() {
@@ -102,5 +105,9 @@ public class FixedDepositController {
 		modelMap.put("editableFixedDepositDetails", fixedDepositDetails);
 		logger.info("viewFixedDepositDetails() method: Fixed deposit details loaded from data store. Showing form for editing the loaded fixed deposit.");
 		return new ModelAndView("editFixedDepositForm", modelMap);
+
+	/*	//显示转换
+		String id="";
+		conversionService.convert(id,FixedDepositDetails.class);*/
 	}
 }

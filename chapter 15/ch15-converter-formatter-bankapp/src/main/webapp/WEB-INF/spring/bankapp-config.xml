@@ -19,8 +19,10 @@
 		</property>
 		<property name="formatters">
 			<set>
+			<!--	<bean
+					class="sample.spring.chapter15.formatter.AmountFormatAnnotationFormatterFactory" />-->
 				<bean
-					class="sample.spring.chapter15.formatter.AmountFormatAnnotationFormatterFactory" />
+						class="sample.spring.chapter15.formatter.AmountFormatter" />
 			</set>
 		</property>
 	</bean>

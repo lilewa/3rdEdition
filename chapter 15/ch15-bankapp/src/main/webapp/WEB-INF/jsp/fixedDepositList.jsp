@@ -35,6 +35,7 @@
 			<tr>
 				<td>
 					<table align="left" style="padding-left: 300px;">
+						<caption><spring:message code="messages2.title" /></caption>
 						<tr>
 							<td
 								style="font-family: 'arial'; font-size: 16px; font-weight: bold;"><spring:message

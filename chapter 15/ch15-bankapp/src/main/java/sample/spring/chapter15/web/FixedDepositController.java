@@ -1,6 +1,7 @@
 package sample.spring.chapter15.web;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,9 +30,14 @@ public class FixedDepositController {
 
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
 	public ModelAndView listFixedDeposits() {
+
+		//更改控制器中的用户语言环境。对jsp中的语言包解析不管用？
+		//LocaleContextHolder.setLocale(new Locale("zh","CN"));
+
 		ModelMap modelData = new ModelMap();
 		modelData.put("fdList", fixedDepositService.getFixedDeposits());
 		modelData.put("currentLocale", LocaleContextHolder.getLocale());
+
 		return new ModelAndView("fixedDepositList", modelData);
 	}
 

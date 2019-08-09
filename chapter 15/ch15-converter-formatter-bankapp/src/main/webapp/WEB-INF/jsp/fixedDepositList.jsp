@@ -57,8 +57,7 @@
 									<c:forEach items="${fdList}" var="fixedDeposit">
 										<tr>
 											<td class="td"><spring:eval expression="fixedDeposit.id" /></td>
-											<td class="td"><spring:eval
-													expression="fixedDeposit.depositAmount" /></td>
+											<td class="td">${fixedDeposit.depositAmount}</td>
 											<td class="td"><spring:eval
 													expression="fixedDeposit.tenure" /></td>
 											<td class="td"><spring:eval
