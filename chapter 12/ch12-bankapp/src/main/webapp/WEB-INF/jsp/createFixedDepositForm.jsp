@@ -35,7 +35,7 @@
 						</tr>
 						<tr>
 							<td class="td"><b>Email:</b></td>
-							<td class="td"><input type="text" name="email" value="${requestScope.fixedDepositDetails.email}" /><font
+							<td class="td"><input type="text" name="email" value="${fixedDepositDetails.email}" /><font
 								style="color: #C11B17;"><c:out value="${requestScope['error.email']}"/></font></td>
 						</tr>
 					</table>

@@ -6,10 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import sample.spring.chapter14.domain.FixedDepositDetails;
@@ -75,6 +72,9 @@ public class FixedDepositWSClient {
 		FixedDepositDetails fixedDepositDetails = responseEntity.getBody();
 		logger.info("Details of the newly created fixed deposit: "
 				+ fixedDepositDetails);
+		HttpStatus status =responseEntity.getStatusCode();
+		logger.info("Details of the newly created fixed deposit: "
+				+ status);//HttpStatus.CREATED =201
 	}
 
 	private static void openInvalidFixedDeposit(RestTemplate restTemplate) {
